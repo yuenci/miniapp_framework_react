@@ -10,3 +10,5 @@ Currently, two official plugins are available:
 
 react 
 tailwindcss
+react router
+react-icons

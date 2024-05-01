@@ -1,4 +1,4 @@
-import reactLogo from '../assets/react.svg'
+import reactLogo from '@/assets/react.svg'
 import fgaTechLogo from '/fga_tech.png'
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
