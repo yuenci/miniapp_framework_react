@@ -3,6 +3,7 @@
   "author": "FGA TEAM",
   "private": true,
   "version": "0.0.1",
+  "app_id": "jkae3j4k",
   "type": "module",
   "scripts": {
     "dev": "vite",
