@@ -27,6 +27,10 @@ export default  function ActionSheetMenu({showMenu,setShowMenu}){
         window.open('/about', "_self");
     }
 
+    function cancel(){
+        setShowMenu(false);
+    }
+
 
     return (
         <div
@@ -50,7 +54,7 @@ export default  function ActionSheetMenu({showMenu,setShowMenu}){
                     <ActionSheetButton title={"Settings"} icon={<GoGear className={buttonStyle}/>}/>
                     <ActionSheetButton title={"Edit"} icon={<GoHeart className={buttonStyle}/>}/>
                 </div>
-                <div className={"text-center p-5 border-t"}>
+                <div className={"text-center p-5 border-t"} onClick={cancel}>
                     Cancel
                 </div>
             </div>
