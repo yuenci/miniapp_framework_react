@@ -11,7 +11,7 @@ export  default function Profile() {
 
     return (
         isAuthenticated && (
-            <div className={"absolute top-2 left-2  w-full flex flex-row items-center"}>
+            <div className={"absolute top-2 left-2 flex flex-row items-center"}>
                 <img src={user.picture} alt={user.name} className={"rounded-full w-8"} />
                 <div className={"text-xs ml-2"}>
                     <h2>{user.name}</h2>
