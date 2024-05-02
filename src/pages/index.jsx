@@ -2,7 +2,6 @@ import reactLogo from '@/assets/react.svg'
 import fgaTechLogo from '/fga_tech.png'
 import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
-import {GoPerson} from "react-icons/go";
 import {useAuth0} from "@auth0/auth0-react";
 import Profile from "@/components/profile.jsx";
 
