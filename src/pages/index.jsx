@@ -1,18 +1,32 @@
 import reactLogo from '@/assets/react.svg'
 import fgaTechLogo from '/fga_tech.png'
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {GoPerson} from "react-icons/go";
+import {useAuth0} from "@auth0/auth0-react";
+import Profile from "@/components/profile.jsx";
+
 
 export default function Index() {
     const [count, setCount] = useState(0)
     const navigate = useNavigate();
+    const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+
+    useEffect(() => {
+        console.log(user);
+    }, [isLoading]);
 
     function goToAbout() {
         navigate('/about');
     }
 
+    function goToLogin(){
+        loginWithRedirect();
+    }
+
     return (
         <div className={"h-screen flex flex-col justify-center items-center"}>
+            <Profile />
             <div className={"flex flex-row justify-between items-center w-[300px] "}>
                 <div onClick={goToAbout}>
                     <img src={fgaTechLogo} className="w-28 cursor-pointer" alt="Vite logo"/>

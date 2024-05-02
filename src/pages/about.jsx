@@ -1,11 +1,18 @@
 import config from "../../package.json";
-import {GoChevronRight} from "react-icons/go";
+import {GoChevronLeft, GoChevronRight} from "react-icons/go";
+import {useNavigate} from "react-router-dom";
 
 export default function About() {
+    const navigate = useNavigate();
+
     return (
         <div>
+            <div className={"absolute top-2 left-2"}
+                 onClick={() => navigate('/')}>
+                <GoChevronLeft className={"w-7 h-7"} />
+            </div>
             <div className={"flex flex-col justify-center items-center bg-white mb-2"}>
-                <header className={"p-2"}>About</header>
+                <header className={"py-3"}>About</header>
                 <div className={"flex flex-col items-center p-8"}>
                     <img src="/app_icon.png" alt="app logo" className={"w-16"}/>
                     <h1 className={"text-black text-xl text-center mt-4"}>MiniApp Framework</h1>

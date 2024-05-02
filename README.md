@@ -14,8 +14,11 @@ react router
 react-icons
 
 1. zustand
-2. auth0
+2. auth0 × 登录方案是UID（Miniapp） + Auth0 两套机制（WebApp）
 3. prisma orm（SSR）
 
 1. record enter、exist time and duration
 2. 
+
+
+
