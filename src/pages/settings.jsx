@@ -1,34 +1,43 @@
 import {GoChevronLeft, GoChevronRight} from "react-icons/go";
 import config from "../../package.json";
+import Block from "@/components/block.jsx";
+import {NavBar, Switch, Radio, Space, Input} from "antd-mobile";
+import {useNavigate} from "react-router-dom";
 
 export default function Settings(){
+    const navigate = useNavigate();
+
     return (
         <div>
-            <div className={"absolute top-2 left-2"}
-                 onClick={() => navigate('/')}>
-                <GoChevronLeft className={"w-7 h-7"} />
-            </div>
-            <div className={"flex flex-col justify-center items-center bg-white mb-2"}>
-                <header className={"py-3"}>Settings</header>
-            </div>
-            <div className={"bg-white mb-4 p-3"}>
-                <div>Version: V{config.version}</div>
-            </div>
-            <div className={"bg-white mb-4 p-3"}>
-                <div>Developer: {config.author}</div>
-            </div>
-
-            <div className={"bg-white mb-4 px-3 py-1"}>
-                <div className={"py-2 flex flex-row justify-between  items-center"}>
-                    <div>Terms of Service</div>
-                    <GoChevronRight className={"w-[18px] h-[18px]"}/>
-                </div>
-                <hr/>
+            <NavBar onBack={() => navigate("/")}
+                    className={"bg-white"}
+            >Settings</NavBar>
+            <Block>
                 <div className={"py-2 flex flex-row justify-between items-center"}>
-                    <div className={"pt-2"}>Privacy Policy</div>
-                    <GoChevronRight className={"w-[18px] h-[18px]"}/>
+                    <div className={"text-base"}>Dark Mode</div>
+                    <Switch/>
                 </div>
-            </div>
+            </Block>
+
+            <Block>
+                <Radio.Group defaultValue='1'>
+                    <Space direction='vertical'>
+                        <Radio value='1'>Item 1</Radio>
+                        <Radio value='2'>Item 2</Radio>
+                        <Radio value='3'>Item 3</Radio>
+                    </Space>
+                </Radio.Group>
+            </Block>
+
+            <Block title='Input'>
+                <Input
+                    placeholder='Please input something'
+                    value={""}
+                    onChange={val => {
+                        setValue(val)
+                    }}
+                />
+            </Block>
         </div>
     )
 }

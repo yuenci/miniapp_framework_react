@@ -1,32 +1,31 @@
 import config from "../../package.json";
 import {GoChevronLeft, GoChevronRight} from "react-icons/go";
 import {useNavigate} from "react-router-dom";
+import {NavBar} from "antd-mobile";
+import Block from "@/components/block.jsx";
 
 export default function About() {
     const navigate = useNavigate();
 
     return (
         <div>
-            <div className={"absolute top-2 left-2"}
-                 onClick={() => navigate('/')}>
-                <GoChevronLeft className={"w-7 h-7"} />
+            <NavBar onBack={() => navigate("/")}
+                    className={"bg-white"}
+            >About</NavBar>
+            <div className={"flex flex-col items-center p-8 bg-white mb-2"}>
+                <img src="/app_icon.png" alt="app logo" className={"w-16"}/>
+                <h1 className={"text-black text-xl text-center mt-4"}>MiniApp Framework</h1>
             </div>
-            <div className={"flex flex-col justify-center items-center bg-white mb-2"}>
-                <header className={"py-3"}>About</header>
-                <div className={"flex flex-col items-center p-8"}>
-                    <img src="/app_icon.png" alt="app logo" className={"w-16"}/>
-                    <h1 className={"text-black text-xl text-center mt-4"}>MiniApp Framework</h1>
-                </div>
 
-            </div>
-            <div className={"bg-white mb-4 p-3"}>
+            <Block>
                 <div>Version: V{config.version}</div>
-            </div>
-            <div className={"bg-white mb-4 p-3"}>
-                <div>Developer: {config.author}</div>
-            </div>
+            </Block>
 
-            <div className={"bg-white mb-4 px-3 py-1"}>
+            <Block>
+                <div>Developer: {config.author}</div>
+            </Block>
+
+            <Block>
                 <div className={"py-2 flex flex-row justify-between  items-center"}>
                     <div>Terms of Service</div>
                     <GoChevronRight className={"w-[18px] h-[18px]"}/>
@@ -36,7 +35,7 @@ export default function About() {
                     <div className={"pt-2"}>Privacy Policy</div>
                     <GoChevronRight className={"w-[18px] h-[18px]"}/>
                 </div>
-            </div>
+            </Block>
         </div>
-    )
+)
 }
