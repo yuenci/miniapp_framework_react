@@ -55,7 +55,8 @@ export default  function ActionSheetMenu(){
         },
         {
             title: "Profile",
-            icon: <GoPerson className={buttonStyle}/>
+            icon: <GoPerson className={buttonStyle}/>,
+            onClick:()=>window.open('https://account-steel.vercel.app/',"_self")
         },
         {
             title: "About",
