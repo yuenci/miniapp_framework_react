@@ -12,3 +12,10 @@ react
 tailwindcss
 react router
 react-icons
+
+1. zustand
+2. auth0
+3. prisma orm（SSR）
+
+1. record enter、exist time and duration
+2. 
