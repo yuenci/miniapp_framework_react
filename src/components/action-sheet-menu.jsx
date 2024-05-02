@@ -28,24 +28,7 @@ function ActionSheetButton({title, icon,onClick}){
 
 export default  function ActionSheetMenu(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
-
     const buttonStyle = "w-[28px] h-[28px]";
-
-    function  handleRefresh(){
-        window.location.reload();
-    }
-
-    function goToAbout() {
-        window.open('/about', "_self");
-    }
-
-    function cancel(){
-        setShowMenu(false);
-    }
-
-    function  copyToClipboard(){
-        navigator.clipboard.writeText(window.location.href);
-    }
 
     const buttonsData = [
         {
@@ -59,7 +42,7 @@ export default  function ActionSheetMenu(){
         {
             title: "Re-enter",
             icon: <IoRefreshSharp className={buttonStyle}/>,
-            onClick: handleRefresh
+            onClick: () => window.location.reload()
         },
         {
             title: "Clean Cache",
@@ -67,7 +50,8 @@ export default  function ActionSheetMenu(){
         },
         {
             title: "Settings",
-            icon: <GoGear className={buttonStyle}/>
+            icon: <GoGear className={buttonStyle}/>,
+            onClick: () => window.open('/settings', "_self")
         },
         {
             title: "Profile",
@@ -76,13 +60,13 @@ export default  function ActionSheetMenu(){
         {
             title: "About",
             icon: <GoInfo className={buttonStyle}/>,
-            onClick: goToAbout
+            onClick: () => window.open('/about', "_self")
         },
         {
             title: "Share",
             icon: config.shared ? <GoShareAndroid className={buttonStyle}/>
                 :<GoShareAndroid className={`${buttonStyle} text-gray-300`}/>,
-            onClick: config.shared ? copyToClipboard : null
+            onClick: !config.shared ? null : () => navigator.clipboard.writeText(window.location.href)
         }
     ]
 
@@ -91,7 +75,7 @@ export default  function ActionSheetMenu(){
         <div>
             <div className={`absolute top-0 h-screen w-screen  transition duration-300 ease-in-out
             ${showMenu ? 'z-10 bg-[#00000030]': '-z-10 bg-[#00000000]' }`}
-                    onClick={cancel}
+                    onClick={() => setShowMenu(false)}
             ></div>
             <div
                 className={`absolute bottom-0 ease-in-out duration-300  w-full   z-20
@@ -106,7 +90,8 @@ export default  function ActionSheetMenu(){
                                                onClick={button.onClick}/>
                         ))}
                     </div>
-                    <div className={"text-center p-5 border-t cursor-pointer"} onClick={cancel}>
+                    <div className={"text-center p-5 border-t cursor-pointer"}
+                         onClick={() => setShowMenu(false)}>
                         Cancel
                     </div>
                 </div>
