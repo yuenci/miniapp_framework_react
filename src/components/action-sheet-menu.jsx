@@ -85,21 +85,26 @@ export default  function ActionSheetMenu({showMenu,setShowMenu}){
 
 
     return (
-        <div
-            className={`absolute bottom-0 ease-in-out duration-300  w-full
+        <div className={`absolute bottom-0 w-full h-screen transition duration-300 ${showMenu && 'bg-[#00000040]'}`}
+                onClick={cancel}
+        >
+            <div
+                className={`ease-in-out duration-300 absolute bottom-0 w-full
             ${showMenu ? 'transition-transform translate-y-0' : 'transition-transform translate-y-full'}`}>
 
-            <div className={`flex flex-col border shadow-lg rounded-t-3xl bg-white`}>
-                <div className={"text-center p-3 border-b "}>
-                    MiniApp Framework
-                </div>
-                <div className={"grid grid-cols-4 gap-2 p-4 w-full"}>
-                    {buttonsData.map((button, index) => (
-                        <ActionSheetButton key={index} title={button.title} icon={button.icon} onClick={button.onClick}/>
-                    ))}
-                </div>
-                <div className={"text-center p-5 border-t cursor-pointer"} onClick={cancel}>
-                    Cancel
+                <div className={`flex flex-col border shadow-lg rounded-t-3xl bg-white`}>
+                    <div className={"text-center p-3 border-b "}>
+                        MiniApp Framework
+                    </div>
+                    <div className={"grid grid-cols-4 gap-2 p-4 w-full"}>
+                        {buttonsData.map((button, index) => (
+                            <ActionSheetButton key={index} title={button.title} icon={button.icon}
+                                               onClick={button.onClick}/>
+                        ))}
+                    </div>
+                    <div className={"text-center p-5 border-t cursor-pointer"} onClick={cancel}>
+                        Cancel
+                    </div>
                 </div>
             </div>
         </div>
