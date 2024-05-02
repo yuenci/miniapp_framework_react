@@ -9,6 +9,7 @@ import {
     GoTrash,
 } from "react-icons/go";
 import {IoRefreshSharp} from "react-icons/io5";
+import {useActionSheetMenuStore} from "@/store/action-sheet-menu-store.js";
 
 function ActionSheetButton({title, icon,onClick}){
 
@@ -25,7 +26,9 @@ function ActionSheetButton({title, icon,onClick}){
 
 }
 
-export default  function ActionSheetMenu({showMenu,setShowMenu}){
+export default  function ActionSheetMenu(){
+    const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
+
     const buttonStyle = "w-[28px] h-[28px]";
 
     function  handleRefresh(){
