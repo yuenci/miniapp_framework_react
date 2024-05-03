@@ -5,6 +5,8 @@
   "version": "0.0.1",
   "app_id": "jkae3j4k",
   "shared": false,
+  "instagram": "https://www.instagram.com/fgacyc/",
+  "github": "https://github.com/fgacyc/",
   "type": "module",
   "scripts": {
     "dev": "vite",

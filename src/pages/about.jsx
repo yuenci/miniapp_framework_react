@@ -3,6 +3,8 @@ import {GoChevronLeft, GoChevronRight} from "react-icons/go";
 import {useNavigate} from "react-router-dom";
 import {NavBar} from "antd-mobile";
 import Block from "@/components/block.jsx";
+import githubLogo from '@/assets/github.png'
+import instagramLogo from '@/assets/instagram.png'
 
 export default function About() {
     const navigate = useNavigate();
@@ -18,21 +20,41 @@ export default function About() {
             </div>
 
             <Block>
-                <div>Version: V{config.version}</div>
+                <div className={"flex justify-between items-center"}>
+                    <div>Version: V{config.version}</div>
+                    <div className={"bg-gray-100 px-1 py-[1px] rounded text-gray-600"}>
+                        Latest Version
+                    </div>
+                </div>
             </Block>
 
             <Block>
-                <div>Developer: {config.author}</div>
+                <div className={"flex justify-between items-center"}>
+                    <div>Developer: {config.author}</div>
+                    <div className={"flex"}>
+                        {
+                            config.instagram && <a href={config.instagram} className={"px-2"}>
+                                <img src={instagramLogo} alt="instagram" className={"w-6"}/>
+                            </a>
+                        }
+                        {
+                            config.github && <a href={config.github} target={"_blank"}>
+                                <img src={githubLogo} alt="github" className={"w-6"}/>
+                            </a>
+                        }
+
+                    </div>
+                </div>
             </Block>
 
             <Block>
-                <div className={"py-2 flex flex-row justify-between  items-center"}>
+                <div className={"pb-2 flex flex-row justify-between  items-center"}>
                     <div>Terms of Service</div>
                     <GoChevronRight className={"w-[18px] h-[18px]"}/>
                 </div>
                 <hr/>
-                <div className={"py-2 flex flex-row justify-between items-center"}>
-                    <div className={"pt-2"}>Privacy Policy</div>
+                <div className={"pt-2 flex flex-row justify-between items-center"}>
+                    <div >Privacy Policy</div>
                     <GoChevronRight className={"w-[18px] h-[18px]"}/>
                 </div>
             </Block>
