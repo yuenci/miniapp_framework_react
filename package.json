@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.1",
   "app_id": "jkae3j4k",
-  "shared": true,
+  "shared": false,
   "type": "module",
   "scripts": {
     "dev": "vite",

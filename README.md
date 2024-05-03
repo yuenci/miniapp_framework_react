@@ -25,4 +25,20 @@ ant design mobile
 2. 
 
 
+// 定义 search_history 表
+model SearchHistory {
+id               Int      @id @default(autoincrement())
+user_id          String
+search_content   String
+search_timestamp DateTime @default(now())
+}
 
+// 定义 favorite 表
+model Favorite {
+id                  Int      @id @default(autoincrement())
+song_id             String
+user_id             String
+favorite_timestamp DateTime @default(now())
+// 声明 song_id 字段作为外键，关联到 song 表的 id 字段
+song                Song?    @relation(fields: [song_id], references: [id])
+}

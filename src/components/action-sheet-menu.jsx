@@ -46,7 +46,11 @@ export default  function ActionSheetMenu(){
         },
         {
             title: "Clean Cache",
-            icon: <GoTrash className={buttonStyle}/>
+            icon: <GoTrash className={buttonStyle}/>,
+            onClick: () => {
+                localStorage.clear();
+                window.location.reload();
+            }
         },
         {
             title: "Settings",

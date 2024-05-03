@@ -1,7 +1,7 @@
 import reactLogo from '@/assets/react.svg'
 import fgaTechLogo from '/fga_tech.png'
 import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {useAuth0} from "@auth0/auth0-react";
 import Profile from "@/components/profile.jsx";
 
@@ -10,6 +10,8 @@ export default function Index() {
     const [count, setCount] = useState(0)
     const navigate = useNavigate();
     const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
+    const {UID} = useParams();
+    console.log(UID);
 
     useEffect(() => {
         console.log(user);
