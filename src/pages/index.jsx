@@ -27,6 +27,9 @@ export default function Index() {
 
     return (
         <div className={"h-screen flex flex-col justify-center items-center"}>
+            <button onClick={goToLogin} className={"bg-[#1a1a1a] text-white rounded-lg py-2 px-4 border-2"}>
+                Login
+            </button>
             <Profile />
             <div className={"flex flex-row justify-between items-center w-[300px] "}>
                 <div onClick={goToAbout}>

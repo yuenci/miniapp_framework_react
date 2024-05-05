@@ -31,10 +31,10 @@ export default  function ActionSheetMenu(){
     const buttonStyle = "w-[28px] h-[28px]";
 
     const buttonsData = [
-        {
-            title: "Favorite",
-            icon: <GoHeart className={buttonStyle}/>
-        },
+        // {
+        //     title: "Favorite",
+        //     icon: <GoHeart className={buttonStyle}/>
+        // },
         {
             title: "Feedback",
             icon: <GoCommentDiscussion className={buttonStyle}/>
