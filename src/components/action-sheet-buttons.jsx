@@ -8,7 +8,7 @@ export default  function ActionSheetButtons(){
     }
 
     function handleClose() {
-        window.open('https://www.fgacyc.com/back', "_self")
+        window.open('https://back.fgacyc.com/', "_self")
     }
 
 
