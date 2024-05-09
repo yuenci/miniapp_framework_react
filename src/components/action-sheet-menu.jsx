@@ -29,6 +29,9 @@ function ActionSheetButton({title, icon,onClick}){
 export default  function ActionSheetMenu(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
     const buttonStyle = "w-[28px] h-[28px]";
+    function capitalizeAllFirstLetters(str) {
+        return str.replace(/\b\w/g, char => char.toUpperCase());
+    }
 
     const buttonsData = [
         // {
@@ -87,7 +90,7 @@ export default  function ActionSheetMenu(){
             ${showMenu ? 'transition-transform translate-y-0' : 'transition-transform translate-y-full'}`}>
                 <div className={`flex flex-col border shadow-lg rounded-t-3xl bg-white`}>
                     <div className={"text-center p-3 border-b "}>
-                        MiniApp Framework
+                        {capitalizeAllFirstLetters(config.name)}
                     </div>
                     <div className={"grid grid-cols-4 gap-2 p-4 w-full"}>
                         {buttonsData.map((button, index) => (
