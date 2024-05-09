@@ -34,7 +34,7 @@ export  default function ProfileToken() {
     }, [decoded]);
 
     return (
-        userInfo && (
+        user && (
             <div className={"absolute top-2 left-2 flex flex-row items-center"}>
                 <img src={user.picture} alt={user.name} className={"rounded-full w-8"} />
                 <div className={"text-xs ml-2"}>
