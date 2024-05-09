@@ -22,7 +22,6 @@ export  default function ProfileToken() {
 
     useEffect(() => {
         const currentUrl = window.location.href;
-        setUrl(currentUrl);
         const { token, language } = extractTokenAndLanguage(currentUrl);
         if (!token) return;
         setToken(token);
