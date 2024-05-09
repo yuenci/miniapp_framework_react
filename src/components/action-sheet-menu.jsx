@@ -39,7 +39,7 @@ export default  function ActionSheetMenu(){
         {
             title: "Feedback",
             icon: <GoCommentDiscussion className={buttonStyle}/>,
-            onClick: () => window.open('https://miniapp-feedback.vercel.app/', "_self")
+            onClick: () => window.open(`https://miniapp-feedback.vercel.app/?app=${config.name}`, "_self")
         },
         {
             title: "Re-enter",
