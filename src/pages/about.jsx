@@ -5,12 +5,10 @@ import {NavBar} from "antd-mobile";
 import Block from "@/components/block.jsx";
 import githubLogo from '@/assets/github.png'
 import instagramLogo from '@/assets/instagram.png'
+import {capitalizeAllFirstLetters} from "@/components/tools.js";
 
 export default function About() {
     const navigate = useNavigate();
-    function capitalizeAllFirstLetters(str) {
-        return str.replace(/\b\w/g, char => char.toUpperCase());
-    }
 
     return (
         <div>
@@ -19,7 +17,9 @@ export default function About() {
             >About</NavBar>
             <div className={"flex flex-col items-center p-8 bg-white mb-2"}>
                 <img src="/app_icon.png" alt="app logo" className={"w-16"}/>
-                <h1 className={"text-black text-xl text-center mt-4"}>{capitalizeAllFirstLetters(config.name)}</h1>
+                <h1 className={"text-black text-xl text-center mt-4"}>
+                    {capitalizeAllFirstLetters(config.name)}
+                </h1>
             </div>
 
             <Block>

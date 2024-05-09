@@ -10,6 +10,7 @@ import {
 } from "react-icons/go";
 import {IoRefreshSharp} from "react-icons/io5";
 import {useActionSheetMenuStore} from "@/store/action-sheet-menu-store.js";
+import {capitalizeAllFirstLetters} from "@/components/tools.js";
 
 function ActionSheetButton({title, icon,onClick}){
 
@@ -29,9 +30,6 @@ function ActionSheetButton({title, icon,onClick}){
 export default  function ActionSheetMenu(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
     const buttonStyle = "w-[28px] h-[28px]";
-    function capitalizeAllFirstLetters(str) {
-        return str.replace(/\b\w/g, char => char.toUpperCase());
-    }
 
     const buttonsData = [
         // {
