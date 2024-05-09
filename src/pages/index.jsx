@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {useAuth0} from "@auth0/auth0-react";
 import Profile from "@/components/profile.jsx";
+import ProfileToken from "@/components/profile-token.jsx";
 
 
 export default function Index() {
@@ -30,7 +31,7 @@ export default function Index() {
             <button onClick={goToLogin} className={"bg-[#1a1a1a] text-white rounded-lg py-2 px-4 border-2"}>
                 Login
             </button>
-            <Profile />
+            <ProfileToken/>
             <div className={"flex flex-row justify-between items-center w-[300px] "}>
                 <div onClick={goToAbout}>
                     <img src={fgaTechLogo} className="w-28 cursor-pointer" alt="Vite logo"/>

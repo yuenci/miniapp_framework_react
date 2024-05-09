@@ -16,7 +16,7 @@ export default function About() {
             >About</NavBar>
             <div className={"flex flex-col items-center p-8 bg-white mb-2"}>
                 <img src="/app_icon.png" alt="app logo" className={"w-16"}/>
-                <h1 className={"text-black text-xl text-center mt-4"}>MiniApp Framework</h1>
+                <h1 className={"text-black text-xl text-center mt-4"}>{config.name}</h1>
             </div>
 
             <Block>

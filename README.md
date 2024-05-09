@@ -15,7 +15,7 @@ react-icons
 auth 0
 zustand
 ant design mobile(antd-mobile)
-
+jwt-decode
 
 1. zustand
 2. auth0 × 登录方案是UID（Miniapp） + Auth0 两套机制（WebApp）
