@@ -12,19 +12,19 @@ export default function Index() {
     const navigate = useNavigate();
     const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
     const {UID} = useParams();
-    console.log(UID);
+    // console.log(UID);
 
-    useEffect(() => {
-        console.log(user);
-    }, [isLoading]);
+    // useEffect(() => {
+    //     console.log(user);
+    // }, [isLoading]);
 
     function goToAbout() {
         navigate('/about');
     }
 
-    function goToLogin(){
-        loginWithRedirect();
-    }
+    // function goToLogin(){
+    //     loginWithRedirect();
+    // }
 
     return (
         <div className={"h-screen flex flex-col justify-center items-center"}>
