@@ -5,14 +5,33 @@ export  default function ProfileToken() {
     const [token, setToken] = useState('');
     const [decoded, setDecoded] = useState('');
     const [user, setUser] = useState(null);
+    const [language, setLanguage] = useState('');
+
+    function extractTokenAndLanguage(url) {
+        let regex = /token=([^&]+).*?&language=([^&]+)/;
+        let match = url.match(regex);
+        if (match) {
+            let token = match[1];
+            let language = match[2];
+            return { token: token, language: language };
+        } else {
+            return { token: null, language: null };
+        }
+    }
 
 
     useEffect(() => {
         const currentUrl = window.location.href;
-        if (!currentUrl.includes("?token=")) return;
-        const token = window.location.href.split("?token=")[1];
+        setUrl(currentUrl);
+        const { token, language } = extractTokenAndLanguage(currentUrl);
         if (!token) return;
         setToken(token);
+
+        if (language) {
+            setLanguage(language);
+        }else {
+            setLanguage('en');
+        }
         const decodedData = jwtDecode(token) ;
         setDecoded(decodedData)
     }, []);
