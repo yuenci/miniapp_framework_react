@@ -18,23 +18,6 @@ export const useUserStore = create((set) => ({
     user : null,
     UID: null,
     language: 'en',
-    getUID:() => {
-        if (useUserStore.getState().UID) {
-            return useUserStore.getState().UID;
-        }else{
-            const currentUrl = window.location.href;
-            const { token,language } = extractTokenAndLanguage(currentUrl);
-            if (language) set({ language: language });
-            if (token) {
-                const decodedData = jwtDecode(token);
-                if (decodedData) {
-                    set({ UID: decodedData.sub });
-                    return useUserStore.getState().UID;
-                }
-            }
-        }
-
-    },
     initUser: async () => {
         const currentUrl = window.location.href;
         let { token,language } = extractTokenAndLanguage(currentUrl);
