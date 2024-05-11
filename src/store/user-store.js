@@ -17,12 +17,14 @@ function extractTokenAndLanguage(url) {
 export const useUserStore = create((set) => ({
     user : null,
     UID: null,
+    language: 'en',
     getUID:() => {
         if (useUserStore.getState().UID) {
             return useUserStore.getState().UID;
         }else{
             const currentUrl = window.location.href;
-            const { token } = extractTokenAndLanguage(currentUrl);
+            const { token,language } = extractTokenAndLanguage(currentUrl);
+            if (language) set({ language: language });
             if (token) {
                 const decodedData = jwtDecode(token);
                 if (decodedData) {
@@ -33,14 +35,14 @@ export const useUserStore = create((set) => ({
         }
 
     },
-    language: 'en',
     initUser: async () => {
         const currentUrl = window.location.href;
-        let { token, language } = extractTokenAndLanguage(currentUrl);
+        let { token,language } = extractTokenAndLanguage(currentUrl);
         if (!token) return;
         if (language) set({ language: language });
         const decodedData = jwtDecode(token);
         if (!decodedData) return;
+        set({ UID: decodedData.sub });
         const domain = decodedData.aud[1];
         const response = await fetch(domain, {
             headers: {

@@ -13,7 +13,7 @@ export default function Index() {
     const navigate = useNavigate();
     // const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
     // const {UID} = useParams();
-    const UID = useUserStore(state => state.getUID());
+    const [UID,language] = useUserStore(state => [state.UID,state.language]);
     // console.log(UID);
 
     // useEffect(() => {
@@ -40,7 +40,7 @@ export default function Index() {
                 </div>
             </div>
             <h1 className={"text-black font-bold text-4xl text-center my-8"}>MiniApp Framework</h1>
-            <div>{UID}</div>
+            <div>{UID} | {language}</div>
             <div className="text-center p-8">
                 <button className={`text-white rounded-lg bg-[#1a1a1a] py-2 px-4 border-2
                 cursor-pointer border-transparent hover:border-[#192F8A] transition duration-300 ease-in-out`}
