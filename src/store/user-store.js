@@ -15,6 +15,7 @@ function extractTokenAndLanguage(url) {
 
 
 export const useUserStore = create((set) => ({
+    token: null,
     user : null,
     UID: null,
     language: 'en',
@@ -22,6 +23,7 @@ export const useUserStore = create((set) => ({
         const currentUrl = window.location.href;
         let { token,language } = extractTokenAndLanguage(currentUrl);
         if (!token) return;
+        set({ token: token });
         if (language) set({ language: language });
         const decodedData = jwtDecode(token);
         if (!decodedData) return;
