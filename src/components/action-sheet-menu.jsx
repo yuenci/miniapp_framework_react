@@ -30,7 +30,7 @@ function ActionSheetButton({title, icon,onClick}){
 
 export default  function ActionSheetMenu(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
-    const token = useUserStore(state => state.token)
+    const [token,lang] = useUserStore(state => [state.token,state.language]);
     const buttonStyle = "w-[28px] h-[28px]";
 
     const buttonsData = [
@@ -41,7 +41,7 @@ export default  function ActionSheetMenu(){
         {
             title: "Feedback",
             icon: <GoCommentDiscussion className={buttonStyle}/>,
-            onClick: () => window.open(`https://miniapp-feedback.vercel.app/?app=${config.app_id}?token=${token}`, "_self")
+            onClick: () => window.open(`https://miniapp-feedback.vercel.app/?app=${config.app_id}?token=${token}&&language=${lang}`, "_self")
         },
         {
             title: "Re-enter",
