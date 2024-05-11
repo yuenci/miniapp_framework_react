@@ -64,7 +64,7 @@ export default  function ActionSheetMenu(){
         {
             title: "Profile",
             icon: <GoPerson className={buttonStyle}/>,
-            onClick:()=>window.open('https://fga-accounts-center.pages.dev',"_self")
+            onClick:()=>window.open('https://fga-accounts-center.pages.dev/',"_self")
         },
         {
             title: "About",
