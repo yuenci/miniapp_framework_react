@@ -11,6 +11,7 @@ import {
 import {IoRefreshSharp} from "react-icons/io5";
 import {useActionSheetMenuStore} from "@/store/action-sheet-menu-store.js";
 import {capitalizeAllFirstLetters} from "@/components/tools.js";
+import {useUserStore} from "@/store/user-store.js";
 
 function ActionSheetButton({title, icon,onClick}){
 
@@ -29,6 +30,7 @@ function ActionSheetButton({title, icon,onClick}){
 
 export default  function ActionSheetMenu(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
+    const token = useUserStore(state => state.token)
     const buttonStyle = "w-[28px] h-[28px]";
 
     const buttonsData = [
@@ -39,7 +41,7 @@ export default  function ActionSheetMenu(){
         {
             title: "Feedback",
             icon: <GoCommentDiscussion className={buttonStyle}/>,
-            onClick: () => window.open(`https://miniapp-feedback.vercel.app/?app=${config.app_id}`, "_self")
+            onClick: () => window.open(`https://miniapp-feedback.vercel.app/?app=${config.app_id}?token=${token}`, "_self")
         },
         {
             title: "Re-enter",
