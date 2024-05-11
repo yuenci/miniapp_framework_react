@@ -8,6 +8,7 @@ import {useEffect} from "react";
 
 function App() {
     const initUser = useUserStore(state => state.initUser);
+
     useEffect(() => {
         void initUser();
     }, [initUser]);

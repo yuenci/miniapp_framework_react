@@ -16,6 +16,23 @@ function extractTokenAndLanguage(url) {
 
 export const useUserStore = create((set) => ({
     user : null,
+    UID: null,
+    getUID:() => {
+        if (useUserStore.getState().UID) {
+            return useUserStore.getState().UID;
+        }else{
+            const currentUrl = window.location.href;
+            const { token } = extractTokenAndLanguage(currentUrl);
+            if (token) {
+                const decodedData = jwtDecode(token);
+                if (decodedData) {
+                    set({ UID: decodedData.sub });
+                    return useUserStore.getState().UID;
+                }
+            }
+        }
+
+    },
     language: 'en',
     initUser: async () => {
         const currentUrl = window.location.href;
