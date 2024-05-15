@@ -36,10 +36,10 @@ export default  function ActionSheetMenu(){
     const {t} =  useTranslation();
 
     const buttonsData = [
-        {
-            title: t("Favorite"),
-            icon: <GoHeart className={buttonStyle}/>
-        },
+        // {
+        //     title: t("Favorite"),
+        //     icon: <GoHeart className={buttonStyle}/>
+        // },
         {
             title: t("Feedback"),
             icon: <GoCommentDiscussion className={buttonStyle}/>,
