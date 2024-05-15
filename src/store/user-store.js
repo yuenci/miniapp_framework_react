@@ -1,5 +1,7 @@
 import { create } from 'zustand'
 import {jwtDecode} from "jwt-decode";
+import {useTranslation} from "react-i18next";
+import i18n from '@/locales/i18n';
 
 function extractTokenAndLanguage(url) {
     let regex = /token=([^&]+).*?&language=([^&]+)/;
@@ -25,6 +27,7 @@ export const useUserStore = create((set) => ({
         if (!token) return;
         set({ token: token });
         if (language) set({ language: language });
+        i18n.changeLanguage(language);
         const decodedData = jwtDecode(token);
         if (!decodedData) return;
         set({ UID: decodedData.sub });

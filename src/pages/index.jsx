@@ -6,53 +6,42 @@ import {useAuth0} from "@auth0/auth0-react";
 import Profile from "@/components/profile.jsx";
 import ProfileToken from "@/components/profile-token.jsx";
 import {useUserStore} from "@/store/user-store.js";
+import {useTranslation} from "react-i18next";
 
 
 export default function Index() {
     const [count, setCount] = useState(0)
     const navigate = useNavigate();
     // const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
-    // const {UID} = useParams();
     const [UID,language] = useUserStore(state => [state.UID,state.language]);
-    // console.log(UID);
+    const {t} =  useTranslation();
 
-    // useEffect(() => {
-    //     console.log(user);
-    // }, [isLoading]);
-
-    function goToAbout() {
-        navigate('/about');
-    }
-
-    // function goToLogin(){
-    //     loginWithRedirect();
-    // }
 
     return (
         <div className={"h-screen flex flex-col justify-center items-center"}>
             <ProfileToken/>
             <div className={"flex flex-row justify-between items-center w-[300px] "}>
-                <div onClick={goToAbout}>
+                <div onClick={()=>navigate('/about')}>
                     <img src={fgaTechLogo} className="w-28 cursor-pointer" alt="Vite logo"/>
                 </div>
-                <div onClick={goToAbout}>
+                <div onClick={() => navigate('/about')}>
                     <img src={reactLogo} className="w-28  cursor-pointer" alt="React logo"/>
                 </div>
             </div>
-            <h1 className={"text-black font-bold text-4xl text-center my-8"}>MiniApp Framework</h1>
+            <h1 className={"text-black font-bold text-4xl text-center my-8"}>{t("MiniApp Framework")}</h1>
             <div>{UID} | {language}</div>
             <div className="text-center p-8">
                 <button className={`text-white rounded-lg bg-[#1a1a1a] py-2 px-4 border-2
                 cursor-pointer border-transparent hover:border-[#192F8A] transition duration-300 ease-in-out`}
                         onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
+                    {t("count is")} {count}
                 </button>
                 <p className={"my-4"}>
                     Edit <code>src/App.jsx</code> and save to test HMR
                 </p>
             </div>
             <p className="text-[#888888] text-center my-4">
-                Click on the logos to learn more
+                {t("Click on the logos to learn more")}
             </p>
         </div>
     )
