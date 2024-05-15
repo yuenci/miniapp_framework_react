@@ -1,4 +1,4 @@
-import config from "../../../0501-miniapp_framework_react/package.json";
+import config from "../../package.json";
 import {
     GoCommentDiscussion,
     GoGear,
@@ -9,9 +9,9 @@ import {
     GoTrash,
 } from "react-icons/go";
 import {IoRefreshSharp} from "react-icons/io5";
-import {useActionSheetMenuStore} from "../../../0501-miniapp_framework_react/src/store/action-sheet-menu-store.js";
+import {useActionSheetMenuStore} from "@/store/action-sheet-menu-store.js";
 import {capitalizeAllFirstLetters} from "./tools.js";
-import {useUserStore} from "../../../0501-miniapp_framework_react/src/store/user-store.js";
+import {useUserStore} from "@/store/user-store.js";
 import {useTranslation} from "react-i18next";
 
 function ActionSheetButton({title, icon,onClick}){

@@ -1,4 +1,4 @@
-import {useUserStore} from "../../../0501-miniapp_framework_react/src/store/user-store.js";
+import {useUserStore} from "@/store/user-store.js";
 
 export  default function ProfileToken() {
     const user = useUserStore(state => state.user);

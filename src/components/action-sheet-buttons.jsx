@@ -1,5 +1,5 @@
 import {GoKebabHorizontal, GoX} from "react-icons/go";
-import {useActionSheetMenuStore} from "../../../0501-miniapp_framework_react/src/store/action-sheet-menu-store.js";
+import {useActionSheetMenuStore} from "@/store/action-sheet-menu-store.js";
 
 export default  function ActionSheetButtons(){
     const [showMenu,setShowMenu] = useActionSheetMenuStore(state => [state.showMenu,state.setShowMenu]);
