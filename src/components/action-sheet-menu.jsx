@@ -103,7 +103,7 @@ export default  function ActionSheetMenu(){
                     </div>
                     <div className={"text-center p-5 border-t cursor-pointer"}
                          onClick={() => setShowMenu(false)}>
-                        Cancel
+                        {t("Cancel")}
                     </div>
                 </div>
                 {/*<div className={`absolute bottom-0 h-screen w-full bg-red-200`}>*/}
