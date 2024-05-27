@@ -63,7 +63,7 @@ function  DevModal({visible,setDevModal}){
                 </div>
                 <div className={"my-1"}>
                     <h3 className={"font-bold"}>Local DEV URL</h3>
-                    <textarea value={token ? "http://localhost:3000/?token=" + token + "&language=" + lang : ""}
+                    <textarea value={token ? "http://localhost:5173/?token=" + token + "&language=" + lang : ""}
                               rows={textAreaRow}
                               className={`w-full border border-black`}/>
                 </div>
