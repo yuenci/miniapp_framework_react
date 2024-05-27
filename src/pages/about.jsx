@@ -12,7 +12,7 @@ export default function About() {
 
     return (
         <div>
-            <NavBar onBack={() => navigate("/")}
+            <NavBar onBack={() => navigate(-1)}
                     className={"bg-white"}
             >About</NavBar>
             <div className={"flex flex-col items-center p-8 bg-white mb-2"}>

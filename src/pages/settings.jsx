@@ -9,7 +9,7 @@ export default function Settings(){
 
     return (
         <div>
-            <NavBar onBack={() => navigate("/")}
+            <NavBar onBack={() => navigate(-1)}
                     className={"bg-white"}
             >Settings</NavBar>
             <Block>
@@ -32,7 +32,7 @@ export default function Settings(){
             <Block title='Input'>
                 <Input
                     placeholder='Please input something'
-                    value={value}
+                    //value={value}
                     onChange={val => {
                         setValue(val)
                     }}

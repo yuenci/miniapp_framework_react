@@ -50,7 +50,7 @@ function  DevModal({visible,setDevModal}){
             <div className={"h-full overflow-auto p-2"}>
                 <div className={"my-1"}>
                     <span className={"font-bold"}>UID: </span>
-                    <input value={UID ?? ""} className={"border border-black w-full"}/>
+                    <input defaultValue={UID ?? ""} className={"border border-black w-full"}/>
                 </div>
                 <div className={"my-1"}>
                     <span className={"font-bold"}>Language: </span>
@@ -58,19 +58,19 @@ function  DevModal({visible,setDevModal}){
                 </div>
                 <div className={"my-1"}>
                     <h3 className={"font-bold"}>URL</h3>
-                    <textarea value={url}
+                    <textarea defaultValue={url}
                               rows={textAreaRow}
                               className={`w-full border border-black`}/>
                 </div>
                 <div className={"my-1"}>
                     <h3 className={"font-bold"}>Local DEV URL</h3>
-                    <textarea value={token ? "http://localhost:5173/?token=" + token + "&language=" + lang : ""}
+                    <textarea defaultValue={token ? "http://localhost:5173/?token=" + token + "&language=" + lang : ""}
                               rows={textAreaRow}
                               className={`w-full border border-black`}/>
                 </div>
                 <div>
                     <h3 className={"font-bold"}>Token</h3>
-                    <textarea value={token ?? ""}
+                    <textarea defaultValue={token ?? ""}
                               rows={textAreaRow}
                               className={`w-full border border-black`}/>
                 </div>
