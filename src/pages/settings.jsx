@@ -1,11 +1,11 @@
-import {GoChevronLeft, GoChevronRight} from "react-icons/go";
-import config from "../../package.json";
 import Block from "@/components/block.jsx";
 import {NavBar, Switch, Radio, Space, Input} from "antd-mobile";
 import {useNavigate} from "react-router-dom";
+import {useState} from "react";
 
 export default function Settings(){
     const navigate = useNavigate();
+    const [value,setValue] = useState('');
 
     return (
         <div>
@@ -32,7 +32,7 @@ export default function Settings(){
             <Block title='Input'>
                 <Input
                     placeholder='Please input something'
-                    value={""}
+                    value={value}
                     onChange={val => {
                         setValue(val)
                     }}

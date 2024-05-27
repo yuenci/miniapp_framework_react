@@ -1,5 +1,5 @@
 import config from "../../package.json";
-import {GoChevronLeft, GoChevronRight} from "react-icons/go";
+import {GoChevronRight} from "react-icons/go";
 import {useNavigate} from "react-router-dom";
 import {NavBar} from "antd-mobile";
 import Block from "@/components/block.jsx";

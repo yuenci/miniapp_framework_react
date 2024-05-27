@@ -1,9 +1,7 @@
 import reactLogo from '@/assets/react.svg'
 import fgaTechLogo from '/fga_tech.png'
-import {useEffect, useState} from "react";
-import {useNavigate, useParams} from "react-router-dom";
-import {useAuth0} from "@auth0/auth0-react";
-import Profile from "@/components/profile.jsx";
+import { useState} from "react";
+import {useNavigate} from "react-router-dom";
 import ProfileToken from "@/components/profile-token.jsx";
 import {useUserStore} from "@/store/user-store.js";
 import {useTranslation} from "react-i18next";
@@ -12,7 +10,6 @@ import {useTranslation} from "react-i18next";
 export default function Index() {
     const [count, setCount] = useState(0)
     const navigate = useNavigate();
-    // const { loginWithRedirect, user, isAuthenticated, isLoading } = useAuth0();
     const [UID,language] = useUserStore(state => [state.UID,state.language]);
     const {t} =  useTranslation();
 
