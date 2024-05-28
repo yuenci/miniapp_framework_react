@@ -1,6 +1,6 @@
 # 1. 简介
 
-FGA Mobile Mini App Framework 是一个前端产品解决方案，基于React实现，使用了最新的技术栈，内置了 i18 国际化解决方案，动态路由，UI框架，状态管理，分析工具等丰富的功能组件，可以快速帮你搭建 Mini App的产品原型。
+FGA Mobile Mini App Framework 是一个前端产品解决方案，基于React实现，使用了最新的技术栈，内置了 i18n 国际化解决方案，动态路由，UI框架，状态管理，分析工具等丰富的功能组件，可以快速帮你搭建 Mini App的产品原型。
 
 在该框架中使用了下面的外部库：
 * [Ant Design Mobile](https://mobile.ant.design/components): UI框架
@@ -186,11 +186,10 @@ https://example.com/room?name=fga
 ```javascript
 import { useLocation } from 'react-router-dom';
 export default function Index(){
-    let location = useLocation();
-    let query = new URLSearchParams(location.search);
+    const [searchParams] = useSearchParams();
     return (
         <div>
-            {query.get('name')}
+            {searchParams.get('name')}
         </div>
     )
 }
@@ -488,7 +487,7 @@ const buttonsData = [
 
 
 
-# 16.监控
+# 16.访问分析
 在部署完成之后，你将获得一个JS片段，请将这个片段添加到你的Mini App的 index.html 中，这样你就可以在Cloudflare的监控平台中查看你的Mini App的访问情况。
 ```html
 <!doctype html>
